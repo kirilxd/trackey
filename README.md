@@ -20,4 +20,5 @@
 4. Екран додавання витрат
 5. Екран календарю
 6. Екран профілю
+
 Мокапи: https://www.figma.com/file/EZiNuexNlkAxZPHKFGtaMh/Trackey?node-id=0%3A1
