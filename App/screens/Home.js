@@ -6,6 +6,7 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 import { AppContext } from "../util/AppContext";
 import { InnerHome } from "./InnerHome";
+import Login from "./Login";
 import Header from "../components/Header";
 import colors from "../config/colors";
 
@@ -13,6 +14,7 @@ const Stack = createStackNavigator();
 
 const screenNames = {
   home: "Home",
+  login: "Login",
 };
 
 const styles = StyleSheet.create({
@@ -56,12 +58,17 @@ export const Home = () => {
         />
         <NavigationContainer>
           <Stack.Navigator
-            initialRouteName={screenNames.home}
+            initialRouteName={screenNames.login}
             screenOptions={{
               header: (props) => <Header {...props} />,
             }}
           >
             <Stack.Screen name={screenNames.home} component={InnerHome} />
+            <Stack.Screen
+              options={{ headerShown: false }}
+              name={screenNames.login}
+              component={Login}
+            />
           </Stack.Navigator>
         </NavigationContainer>
       </SafeAreaView>

@@ -199,8 +199,10 @@ const styles = StyleSheet.create({
     color: colors.lightBlack,
     width: "80%",
     fontSize: 18,
+    textAlign: "center",
   },
   buttonWrapper: {
+    marginLeft: 140,
     flexDirection: "row",
     width: 148,
     height: 40,
