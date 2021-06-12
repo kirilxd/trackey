@@ -1,9 +1,10 @@
-import React from "react";
-import { View, StyleSheet } from "react-native";
+import React, { useContext } from "react";
+import { View, StyleSheet, Button } from "react-native";
 import colors from "../config/colors";
 import Card from "../components/Card";
 import ListItems from "../components/ListItems";
 import Footer from "../components/Footer";
+import { AppContext } from "../util/AppContext";
 
 const styles = StyleSheet.create({
   footerWrapper: {
@@ -18,6 +19,7 @@ const styles = StyleSheet.create({
 });
 
 export const InnerHome = () => {
+  const { setAuth } = useContext(AppContext);
   return (
     <View style={styles.viewStyle}>
       <Card />
@@ -25,6 +27,9 @@ export const InnerHome = () => {
       <View style={styles.footerWrapper}>
         <Footer />
       </View>
+      <Button onPress={() => setAuth(false)} title="Logout">
+        Logout
+      </Button>
     </View>
   );
 };

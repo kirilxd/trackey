@@ -29,7 +29,7 @@ const styles = StyleSheet.create({
 });
 
 export const Home = () => {
-  const { setTrackItInfo } = useContext(AppContext);
+  const { setTrackItInfo, auth } = useContext(AppContext);
 
   useEffect(() => {
     const fetchAppData = async () => {
@@ -52,24 +52,30 @@ export const Home = () => {
     <>
       <SafeAreaView style={styles.headerContainer} />
       <SafeAreaView style={styles.footerContainer}>
-        <StatusBar
-          barStyle="light-content"
-          backgroundColor={colors.headerColor}
-        />
         <NavigationContainer>
-          <Stack.Navigator
-            initialRouteName={screenNames.login}
-            screenOptions={{
-              header: (props) => <Header {...props} />,
-            }}
-          >
-            <Stack.Screen name={screenNames.home} component={InnerHome} />
-            <Stack.Screen
-              options={{ headerShown: false }}
-              name={screenNames.login}
-              component={Login}
-            />
-          </Stack.Navigator>
+          {auth ? (
+            <Stack.Navigator
+              initialRouteName={screenNames.home}
+              screenOptions={{
+                header: (props) => <Header {...props} />,
+              }}
+            >
+              <Stack.Screen name={screenNames.home} component={InnerHome} />
+            </Stack.Navigator>
+          ) : (
+            <Stack.Navigator initialRouteName={screenNames.login}>
+              <Stack.Screen
+                name={screenNames.login}
+                component={Login}
+                options={{
+                  title: "Login",
+                  headerStyle: {
+                    backgroundColor: colors.headerColor,
+                  },
+                }}
+              />
+            </Stack.Navigator>
+          )}
         </NavigationContainer>
       </SafeAreaView>
     </>

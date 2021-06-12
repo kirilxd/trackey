@@ -6,6 +6,7 @@ import uuid from "react-native-uuid";
 export const AppContext = createContext();
 
 export const AppContextProvider = ({ children }) => {
+  const [auth, setAuth] = useState(false);
   const [openModal, setOpenModal] = useState("false");
   const [modalType, setModalType] = useState("add");
   const [showCalendar, setOpenCalendar] = useState("false");
@@ -146,6 +147,8 @@ export const AppContextProvider = ({ children }) => {
   };
 
   const contextValue = {
+    auth,
+    setAuth,
     openModal,
     modalType,
     showCalendar,
