@@ -18,9 +18,13 @@ const screenNames = {
 };
 
 const styles = StyleSheet.create({
-  headerContainer: {
+  headerAuthContainer: {
     flex: 0,
     backgroundColor: colors.headerColor,
+  },
+  headerContainer: {
+    flex: 0,
+    backgroundColor: colors.greyColor,
   },
   footerContainer: {
     flex: 1,
@@ -50,7 +54,9 @@ export const Home = () => {
   }, []);
   return (
     <>
-      <SafeAreaView style={styles.headerContainer} />
+      <SafeAreaView
+        style={auth ? styles.headerAuthContainer : styles.headerContainer}
+      />
       <SafeAreaView style={styles.footerContainer}>
         <NavigationContainer>
           {auth ? (
@@ -67,12 +73,7 @@ export const Home = () => {
               <Stack.Screen
                 name={screenNames.login}
                 component={Login}
-                options={{
-                  title: "Login",
-                  headerStyle: {
-                    backgroundColor: colors.headerColor,
-                  },
-                }}
+                options={{ headerShown: false }}
               />
             </Stack.Navigator>
           )}
