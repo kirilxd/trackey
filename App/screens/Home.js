@@ -9,12 +9,14 @@ import { InnerHome } from "./InnerHome";
 import Login from "./Login";
 import Header from "../components/Header";
 import colors from "../config/colors";
+import Register from "./Register";
 
 const Stack = createStackNavigator();
 
 const screenNames = {
   home: "Home",
   login: "Login",
+  register: "Register",
 };
 
 const styles = StyleSheet.create({
@@ -74,6 +76,11 @@ export const Home = () => {
                 name={screenNames.login}
                 component={Login}
                 options={{ headerShown: false }}
+              />
+              <Stack.Screen
+                options={{ headerShown: false }}
+                name={screenNames.register}
+                component={Register}
               />
             </Stack.Navigator>
           )}

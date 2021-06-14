@@ -9,13 +9,30 @@ import {
 } from "react-native";
 import colors from "../config/colors";
 
-const Login = ({ navigation }) => {
+const Login = () => {
   const { setAuth } = useContext(AppContext);
+  const [name, setName] = useState("");
+  const [surname, setSurname] = useState("");
   const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
   return (
     <View style={styles.container}>
       <Text style={styles.logo}>Trackey</Text>
+      <View style={styles.inputView}>
+        <TextInput
+          style={styles.inputText}
+          placeholder="Name..."
+          placeholderTextColor="#003f5c"
+          onChangeText={(text) => setName(text)}
+        />
+      </View>
+      <View style={styles.inputView}>
+        <TextInput
+          style={styles.inputText}
+          placeholder="Surname..."
+          placeholderTextColor="#003f5c"
+          onChangeText={(text) => setSurname(text)}
+        />
+      </View>
       <View style={styles.inputView}>
         <TextInput
           style={styles.inputText}
@@ -28,24 +45,13 @@ const Login = ({ navigation }) => {
         <TextInput
           secureTextEntry
           style={styles.inputText}
-          placeholder="Password..."
+          placeholder="Enter password..."
           placeholderTextColor="#003f5c"
-          onChangeText={(text) => setPassword(text)}
+          onChangeText={(text) => setEmail(text)}
         />
       </View>
-      <TouchableOpacity>
-        <Text style={styles.forgot}>Forgot Password?</Text>
-      </TouchableOpacity>
       <TouchableOpacity style={styles.loginBtn} onPress={() => setAuth(true)}>
-        <Text style={styles.loginText}>LOGIN</Text>
-      </TouchableOpacity>
-      <TouchableOpacity>
-        <Text
-          style={styles.signupText}
-          onPress={() => navigation.navigate("Register")}
-        >
-          Signup
-        </Text>
+        <Text style={styles.loginText}>Sign Up</Text>
       </TouchableOpacity>
     </View>
   );
@@ -88,7 +94,7 @@ const styles = StyleSheet.create({
     height: 50,
     alignItems: "center",
     justifyContent: "center",
-    marginTop: 40,
+    marginTop: 20,
     marginBottom: 10,
   },
   loginText: {
