@@ -24,12 +24,6 @@ export const InnerHome = () => {
     <View style={styles.viewStyle}>
       <Card />
       <ListItems />
-      <View style={styles.footerWrapper}>
-        <Footer />
-      </View>
-      <Button onPress={() => setAuth(false)} title="Logout">
-        Logout
-      </Button>
     </View>
   );
 };

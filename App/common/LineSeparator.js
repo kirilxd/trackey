@@ -4,8 +4,8 @@ import colors from "../config/colors";
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: colors.lightGreyColor,
-    width: 1,
+    backgroundColor: colors.headerColor,
+    width: 3,
     marginBottom: 6,
     marginTop: 6,
   },
