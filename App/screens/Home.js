@@ -71,7 +71,6 @@ export const Home = () => {
             <Tab.Navigator
               tabBarOptions={{
                 activeTintColor: colors.headerColor,
-                showLabel: false,
                 style: {
                   backgroundColor: "white",
                 },
