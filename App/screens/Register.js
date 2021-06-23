@@ -10,7 +10,7 @@ import {
 import colors from "../config/colors";
 
 const Login = () => {
-  const { setAuth } = useContext(AppContext);
+  const { setAuth, setProfileName, setProfileSurname } = useContext(AppContext);
   const [name, setName] = useState("");
   const [surname, setSurname] = useState("");
   const [email, setEmail] = useState("");
@@ -50,7 +50,14 @@ const Login = () => {
           onChangeText={(text) => setEmail(text)}
         />
       </View>
-      <TouchableOpacity style={styles.loginBtn} onPress={() => setAuth(true)}>
+      <TouchableOpacity
+        style={styles.loginBtn}
+        onPress={() => {
+          setAuth(true);
+          setProfileName(name);
+          setProfileSurname(surname);
+        }}
+      >
         <Text style={styles.loginText}>Sign Up</Text>
       </TouchableOpacity>
     </View>

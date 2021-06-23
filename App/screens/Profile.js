@@ -11,7 +11,7 @@ import { AppContext } from "../util/AppContext";
 import colors from "../config/colors";
 
 const Profile = () => {
-  const { setAuth } = useContext(AppContext);
+  const { setAuth, profileName, profileSurname } = useContext(AppContext);
   return (
     <View style={styles.wrapper}>
       <View style={styles.flexWrapper}>
@@ -25,7 +25,9 @@ const Profile = () => {
           />
         </View>
         <View style={styles.headerWrapper}>
-          <Text style={{ fontSize: 40 }}>Name Surname</Text>
+          <Text style={{ fontSize: 40 }}>
+            {profileName} {profileSurname}
+          </Text>
         </View>
       </View>
       <View style={styles.buttonWrapper}>

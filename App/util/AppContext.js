@@ -23,7 +23,8 @@ export const AppContextProvider = ({ children }) => {
   const [balance, setBalance] = useState("0");
   const [trackItInfo, setTrackItInfo] = useState([]);
   const [parsedData, setParsedData] = useState([]);
-
+  const [profileName, setProfileName] = useState("Name");
+  const [profileSurname, setProfileSurname] = useState("Surname");
   const saveItem = async () => {
     try {
       const amount = formData.amount;
@@ -176,6 +177,10 @@ export const AppContextProvider = ({ children }) => {
     editItem,
     convertToSectionDataFormat,
     calculateIncomeExpense,
+    profileName,
+    setProfileName,
+    profileSurname,
+    setProfileSurname,
   };
 
   return (
